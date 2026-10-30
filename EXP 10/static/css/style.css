@@ -1,0 +1,136 @@
+/* Custom MedVision-ML Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --accent: #06b6d4;
+    --bg-dark: #0f172a;
+    --card-dark: #1e293b;
+    --border-dark: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0b0f19;
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+.mono-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism styling */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-accent {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(6, 182, 212, 0.05) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Stepper step styling */
+.step-tab {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+.step-tab.active {
+    background: rgba(2, 132, 199, 0.2);
+    border-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.3);
+}
+.step-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: #38bdf8;
+    border-radius: 9999px;
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+/* Image preview containers */
+.medical-img-container {
+    background: radial-gradient(circle at center, #1e293b 0%, #0b0f19 100%);
+    border: 1px solid #334155;
+    position: relative;
+    overflow: hidden;
+}
+
+.medical-img-container img {
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.3s ease;
+}
+
+.medical-img-container:hover img {
+    transform: scale(1.02);
+}
+
+/* Pulse animation for active inferences */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+    }
+}
+.glow-success {
+    animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseDanger {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+    }
+}
+.glow-danger {
+    animation: pulseDanger 2.5s infinite;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #38bdf8;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
